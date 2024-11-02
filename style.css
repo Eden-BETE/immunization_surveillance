@@ -1,0 +1,17 @@
+.contexte{
+    color: #007BFF;  /* Custom color */
+    font-size: 18px; /* Custom font size */
+    line-height: 1.5;
+}
+
+.Titre_1 {
+    font-size: 36px;       /* Taille de la police */
+    font-weight: bold;     /* Texte en gras */
+    color: #4CAF50;        /* Couleur du texte */
+    text-align: center;    /* Centre le texte */
+    margin-bottom: 20px;   /* Espace en bas */
+}
+
+body {
+    background-color: yellow; /* Change la couleur de fond pour voir si le CSS est appliqué */
+}

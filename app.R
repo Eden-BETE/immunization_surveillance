@@ -4,31 +4,34 @@ library(shiny)
 library(shinydashboard)
 
 # Load the page
-source("pages/page1.R")  # Ensure this path is correct and points to your page1.R file
+source("pages/Home.R")  # Ensure this path is correct and points to your page1.R file
 
 # User interface
 ui <- dashboardPage(
-  dashboardHeader(title = "Mon Dashboard Multi-pages"),
+  dashboardHeader(title = "Immunization_Surveillance"),
   
   # Sidebar navigation
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Page 1", tabName = "page1", icon = icon("dashboard"))
+      menuItem("Home", tabName = "Home", icon = icon("dashboard"))
       # Remove other menu items for now
     )
   ),
   
-  # Dashboard body
+  # Inside the dashboardBody() in app.R
   dashboardBody(
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+    ),
     tabItems(
-      page1_ui  # Reference only Page 1 UI
+      Home_ui  # Reference the Home UI
     )
   )
 )
 
 # Server logic
 server <- function(input, output, session) {
-  callModule(page1_server, "page1")  # Call only the server for Page 1
+  callModule(Home_server, "Home")  # Call only the server for Page 1
 }
 
 # Launch the application
