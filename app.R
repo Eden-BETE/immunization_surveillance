@@ -1,41 +1,35 @@
-install.packages('shinydashboard')
+# Load necessary libraries
+install.packages('shinydashboard')  # Uncomment this if you haven't installed the package yet
 library(shiny)
 library(shinydashboard)
 
-# Chargement des fichiers de chaque page
-source("pages/page1.R")
-source("pages/page2.R")
-source("pages/page3.R")
+# Load the page
+source("pages/page1.R")  # Ensure this path is correct and points to your page1.R file
 
-# Interface utilisateur
+# User interface
 ui <- dashboardPage(
   dashboardHeader(title = "Mon Dashboard Multi-pages"),
   
-  # Barre latérale de navigation
+  # Sidebar navigation
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Page 1", tabName = "page1", icon = icon("dashboard")),
-      menuItem("Page 2", tabName = "page2", icon = icon("chart-line")),
-      menuItem("Page 3", tabName = "page3", icon = icon("table"))
+      menuItem("Page 1", tabName = "page1", icon = icon("dashboard"))
+      # Remove other menu items for now
     )
   ),
   
-  # Corps du tableau de bord
+  # Dashboard body
   dashboardBody(
     tabItems(
-      page1_ui,
-      page2_ui,
-      page3_ui
+      page1_ui  # Reference only Page 1 UI
     )
   )
 )
 
-# Logique du serveur
+# Server logic
 server <- function(input, output, session) {
-  callModule(page1_server, "page1")
-  callModule(page2_server, "page2")
-  callModule(page3_server, "page3")
+  callModule(page1_server, "page1")  # Call only the server for Page 1
 }
 
-# Lancement de l'application
+# Launch the application
 shinyApp(ui = ui, server = server)
