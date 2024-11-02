@@ -14,7 +14,9 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "Home", icon = icon("dashboard"))
-      # Remove other menu items for now
+     
+
+      
     )
   ),
 
