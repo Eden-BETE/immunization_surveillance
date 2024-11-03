@@ -1,17 +1,17 @@
 library(shiny)
 
 # UI for Page 1
-Home_ui <- tabItem(
+home_ui <- tabItem(
   tabName = "Home",
   fluidPage(
     # Change titlePanel to a div with custom styling
-    div(style = "font-size: 36px; font-weight: bold; color: black; text-align: center; 
+    div(style = "font-size: 36px; font-weight: bold; color: black; text-align: center;  # nolint
              margin-bottom: 20px; background-color: #f5f5dc; 
              border: 2px solid #d9d9d9; padding: 10px; border-radius: 8px;",
-    h1("Immunization Surveillance Dashboard")
+             h1("Immunization Surveillance Dashboard") # nolint
     ),
 
-    
+
     fluidRow(
       column(width = 12,
             h2("Project Context"),
@@ -42,6 +42,6 @@ Home_ui <- tabItem(
 )
 
 # Server logic for Page 1 (if needed)
-Home_server <- function(input, output, session) {
+home_server <- function(input, output, session) {
   # Any server-side logic can go here (if needed)
 }
