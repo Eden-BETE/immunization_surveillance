@@ -13,8 +13,8 @@ ui <- dashboardPage(
   # Sidebar navigation
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Home", tabName = "Home", icon = icon("dashboard")),
-      menuItem("Filtres", tabName = "Filtres", icon = icon("dashboard"))
+      menuItem("Home", tabName = "Home", icon = icon("dashboard"))
+      
       # Remove other menu items for now
     )
   ),
