@@ -4,7 +4,7 @@ library(shiny)
 library(shinydashboard)
 
 # Load the page
-source("pages/Home.R") 
+source("Pages/Home.R") 
 
 # User interface
 ui <- dashboardPage(
@@ -25,7 +25,7 @@ ui <- dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
     ),
     tabItems(
-      Home_ui # Reference the Home UI
+      home_ui # Reference the Home UI
       
     )
   )
@@ -33,7 +33,7 @@ ui <- dashboardPage(
 
 # Server logic
 server <- function(input, output, session) {
-  callModule(Home_server, "Home")
+  callModule(home_server, "Home")
     # Call only the server for Page 1
 }
 
