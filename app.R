@@ -1,42 +1,48 @@
-# Load necessary libraries
-install.packages('shinydashboard')  # Uncomment this if you haven't installed the package yet
-library(shiny)
-library(shinydashboard)
+# app.R
+install.packages("htmlwidgets")
+library(htmlwidgets)
 
-# Load the page
-source("pages/Home.R") 
+library(shiny)
+library(sf)
+library(tidyverse)
+library(leaflet)
+
+# Load the pages
+source("Pages/Home.R") 
+source("Pages/Map.R")
 
 # User interface
 ui <- dashboardPage(
-  dashboardHeader(title = "Immunization_Surveillance"),
+  dashboardHeader(title = "Immunization Surveillance"),
   
   # Sidebar navigation
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Home", tabName = "Home", icon = icon("dashboard"))
-      
-      # Remove other menu items for now
+      menuItem("Home", tabName = "Home", icon = icon("dashboard")),
+      menuItem("Map", tabName = "Map", icon = icon("globe"))
     )
   ),
   
-  # Inside the dashboardBody() in app.R
+  # Dashboard body
   dashboardBody(
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
     ),
     tabItems(
-      Home_ui # Reference the Home UI
-      
+      home_ui,  # UI from Home.R
+      map_ui    # UI from Map.R
     )
   )
 )
 
 # Server logic
 server <- function(input, output, session) {
-  callModule(Home_server, "Home")
-    # Call only the server for Page 1
+  # Call home server
+  home_server(input, output, session)
+  
+  # Call map server directly (not as a module)
+  map_server(input, output, session)
 }
 
 # Launch the application
 shinyApp(ui = ui, server = server)
-
