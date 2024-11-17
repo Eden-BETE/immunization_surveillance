@@ -1,6 +1,9 @@
 # Charger les bibliothèques nécessaires
 install.packages('shinydashboard') # nolint
 install.packages('shinyWidgets') # nolint
+install.packages("sf")
+install.packages("tidyverse")
+install.packages("leaflet")
 library(shiny)
 library(shinydashboard)
 # app.R

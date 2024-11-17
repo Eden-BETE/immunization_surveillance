@@ -8,8 +8,8 @@ library(sf)
 library(htmlwidgets)  # Ensure htmlwidgets is explicitly loaded
 
 # Load data
-data <- read.csv("/Users/edenbete/Documents/immunization_surveillance/data/combined_vaccine_coverage.csv")
-world_map <- st_read("/Users/edenbete/Documents/immunization_surveillance/data/world_map.json")
+data <- read.csv("data/combined_vaccine_coverage.csv")
+world_map <- st_read("data/world_map.json")
 
 # UI for the Map tab
 map_ui <- tabItem(
