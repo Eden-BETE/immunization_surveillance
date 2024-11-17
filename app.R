@@ -21,18 +21,7 @@ ui <- dashboardPage(
   
   # Dans dashboardBody()
   dashboardBody(
-    # Appliquer un fond dégradé fluide à l'aide de setBackgroundColor
-    setBackgroundColor(
-      color = c("white", "lightblue"), # Dégradé du blanc au bleu clair
-      gradient = "linear", # Dégradé linéaire
-      direction = "right" # Direction du dégradé, corrigée
-    ),
-    
-    # Importer le CSS personnalisé si nécessaire
-    tags$head(
-      tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-    ),
-    
+
     # UI pour la page d'accueil
     home_ui
   )

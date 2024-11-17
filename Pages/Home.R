@@ -4,12 +4,12 @@ tags$head(tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css
 tags$head(tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap"))
 tags$head(tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap"))
 tags$head(
-  tags$style(HTML("
-    body {
-      background-color: #888888 !important;
-    }
-  "))
+  tags$link(
+    rel = "stylesheet",
+    href = "https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Montserrat+Alternates:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+  )
 )
+
 
 
 # UI for Page 1
@@ -46,10 +46,10 @@ home_ui <- tabItem(
         tags$ul(
           class = "terminology-list",
           tags$li(strong("WUENIC (WHO and UNICEF Estimates of National Immunization Coverage):"), "Annual estimates of national vaccination coverage produced by WHO and UNICEF, based on a review of data submitted by Member States, including administrative data and survey results."),
-          tags$li("WHO (World Health Organization): A specialized agency of the United Nations responsible for coordinating international health efforts."),
-          tags$li("UNICEF (United Nations Children's Fund): A United Nations agency dedicated to the protection and promotion of children's rights worldwide, including child health and vaccination."),
-          tags$li("Vaccination Coverage: The percentage of the target population that has received a specific vaccine. Coverage is essential for achieving herd immunity and protecting vulnerable populations."),
-          tags$li("Herd Immunity: The indirect protection from infectious disease that occurs when a sufficient proportion of a population is immunized, thereby reducing the spread of the disease.")
+          tags$li(strong("WHO (World Health Organization):"), " A specialized agency of the United Nations responsible for coordinating international health efforts."),
+          tags$li(strong("UNICEF (United Nations Children's Fund):"), " A United Nations agency dedicated to the protection and promotion of children's rights worldwide, including child health and vaccination."),
+          tags$li(strong("Vaccination Coverage:"), " The percentage of the target population that has received a specific vaccine. Coverage is essential for achieving herd immunity and protecting vulnerable populations."),
+          tags$li(strong("Herd Immunity:"), " The indirect protection from infectious disease that occurs when a sufficient proportion of a population is immunized, thereby reducing the spread of the disease.")
         )
       ),
 
@@ -61,36 +61,40 @@ home_ui <- tabItem(
           style = "display: flex; flex-direction: column; gap: 15px; margin-top: 20px;",
           div(
             class = "card",
-            p(
-              class = "card-title",
-              span("195 ", class = "highlight"),
-              "pays dans la base de données."
+            style = "display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);",
+            div(
+              style = "font-size: 2.5rem; font-weight: bold; color: rgb(0, 155, 182);",
+              "195"
+            ),
+            div(
+              style = "font-size: 1rem; font-weight: bold; color: black; text-align: center; margin-top: 10px;",
+              "COUNTRIES IN THE DATABASE."
             )
           ),
           div(
             class = "card",
-            p(
-              class = "card-title",
-              span("16 ", class = "highlight"),
-              "antigènes ou vaccins suivis."
+            style = "display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);",
+            div(
+              style = "font-size: 2.5rem; font-weight: bold; color: rgb(0, 155, 182);",
+              "16"
+            ),
+            div(
+              style = "font-size: 1rem; font-weight: bold; color: black; text-align: center; margin-top: 10px;",
+              "MONITORED ANTIGENS OR  VACCINES."
             )
           ),
           div(
             class = "card",
-            p(
-              class = "card-title",
-              span("23 ", class = "highlight"),
-              "années couvertes par les données."
+            style = "display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);",
+            div(
+              style = "font-size: 2.5rem; font-weight: bold; color: rgb(0, 155, 182);",
+              "23"
+            ),
+            div(
+              style = "font-size: 1rem; font-weight: bold; color: black; text-align: center; margin-top: 10px;",
+              "YEARS COVERED BY THE DATA."
             )
           ),
-          div(
-            class = "card",
-            p(
-              class = "card-title",
-              span("12% ", class = "highlight"),
-              "de données manquantes dans certains pays."
-            )
-          )
         )
       )
     )
