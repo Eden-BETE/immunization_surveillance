@@ -1,3 +1,6 @@
+
+install.packages("shinydashboard")
+library(shinydashboard)
 # app.R
 install.packages("htmlwidgets")
 library(htmlwidgets)
