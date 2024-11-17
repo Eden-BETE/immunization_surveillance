@@ -1,42 +1,47 @@
-# Load necessary libraries
-install.packages('shinydashboard')  # Uncomment this if you haven't installed the package yet
+# Charger les bibliothèques nécessaires
+install.packages('shinydashboard') # nolint
+install.packages('shinyWidgets') # nolint
 library(shiny)
 library(shinydashboard)
+library(shinyWidgets)
 
-# Load the page
-source("Pages/Home.R") 
+# Charger la page
+source("./Pages/Home.R")
 
-# User interface
+# Interface utilisateur
 ui <- dashboardPage(
   dashboardHeader(title = "Immunization_Surveillance"),
-  
-  # Sidebar navigation
+
+  # Barre latérale
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "Home", icon = icon("dashboard"))
-      
-      # Remove other menu items for now
     )
   ),
   
-  # Inside the dashboardBody() in app.R
+  # Dans dashboardBody()
   dashboardBody(
+    # Appliquer un fond dégradé fluide à l'aide de setBackgroundColor
+    setBackgroundColor(
+      color = c("white", "lightblue"), # Dégradé du blanc au bleu clair
+      gradient = "linear", # Dégradé linéaire
+      direction = "right" # Direction du dégradé, corrigée
+    ),
+    
+    # Importer le CSS personnalisé si nécessaire
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
     ),
-    tabItems(
-      home_ui # Reference the Home UI
-      
-    )
+    
+    # UI pour la page d'accueil
+    home_ui
   )
 )
 
-# Server logic
+# Logique serveur
 server <- function(input, output, session) {
-  callModule(home_server, "Home")
-    # Call only the server for Page 1
+  callModule(home_server, "Home") # Appeler uniquement le serveur pour la Page 1
 }
 
-# Launch the application
+# Lancer l'application
 shinyApp(ui = ui, server = server)
-

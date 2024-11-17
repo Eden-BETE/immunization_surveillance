@@ -1,0 +1,89 @@
+body {
+  background-color: #888888; /* Exemple : une couleur bleu clair */
+}
+/* Appliquer Space Mono aux titres */
+.title-panel {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  color: rgb(0, 146, 179); /* Couleur du texte */
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.context-title, .objectives-title, .terminology-title {
+  font-family: "Montserrat Alternates", sans-serif; /* Appliquer Space Mono aux autres titres */
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+}
+
+.global_view {
+  font-family: "Montserrat Alternates", sans-serif; /* Appliquer Space Mono aux autres titres */
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+  text-align: center;
+}
+
+/* Appliquer la couleur bleue au texte */
+.context-text, .objectives-text, .terminology-list {
+  font-size: 15px;
+  font-family: "Amita", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+}
+
+:root {
+  font-size: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.card {
+  max-width: 350px; /* Réduction de la largeur maximale */
+  min-height: 115px; /* Réduction de la hauteur minimale */
+  height: 125px; /* Hauteur plus petite */
+  padding-top: 30px; /* Réduction des marges internes */
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, 0.8); /* Couleur avec effet Glassmorphism */
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Centrer le texte */
+  border-radius: 10px;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Titre dans la carte */
+.card-title {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  color: #333; /* Couleur du texte */
+}
+
+/* Texte mis en valeur dans chaque carte */
+.highlight {
+  font-family: 'Akaya Telivigala', cursive;
+  font-size: 28px; /* Texte plus grand pour les nombres */
+  font-weight: bold;
+  color: #1a73e8; /* Bleu pour le texte */
+}
+
+/* Espacement entre les cartes */
+.card + .card {
+  margin-top: 15px;
+}
+
