@@ -1,0 +1,82 @@
+body {
+  background-color: #888888; /* Exemple : une couleur bleu clair */
+}
+/* Appliquer Space Mono aux titres */
+.title-panel {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  color: rgb(0, 146, 179); /* Couleur du texte */
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.context-title, .objectives-title, .terminology-title {
+  font-family: "Montserrat Alternates", sans-serif; /* Appliquer Space Mono aux autres titres */
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+}
+
+.global_view {
+  font-family: "Montserrat Alternates", sans-serif; /* Appliquer Space Mono aux autres titres */
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+  text-align: center;
+}
+
+/* Appliquer la couleur bleue au texte */
+.context-text, .objectives-text, .terminology-list {
+  font-size: 15px;
+  font-family: "Amita", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0); /* Couleur du texte */
+}
+
+:root {
+  font-size: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+/* Modifier l'apparence des cartes */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligner les éléments à gauche */
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Ajustez en fonction de votre besoin */
+  height: auto; /* Ajuster la hauteur automatiquement */
+}
+
+.card div:first-child {
+  font-size: 4rem; /* Taille du numéro */
+  font-weight: bold;
+  color: rgb(0, 155, 182);
+  text-align: left; /* Aligner à gauche */
+}
+
+.card div:last-child {
+  font-size: 1.2rem; /* Taille du texte */
+  font-weight: bold;
+  color: black;
+  text-align: left; /* Aligner à gauche */
+  margin-top: 5px; /* Réduire l'espace entre le chiffre et le texte */
+}

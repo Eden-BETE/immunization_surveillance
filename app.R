@@ -1,20 +1,23 @@
-
-install.packages("shinydashboard")
+# Charger les bibliothèques nécessaires
+install.packages('shinydashboard') # nolint
+install.packages('shinyWidgets') # nolint
+library(shiny)
 library(shinydashboard)
 # app.R
 install.packages("htmlwidgets")
 library(htmlwidgets)
 
-library(shiny)
 library(sf)
 library(tidyverse)
 library(leaflet)
+library(shinyWidgets)
+
 
 # Load the pages
 source("Pages/Home.R") 
 source("Pages/Map.R")
 
-# User interface
+# Interface utilisateur
 ui <- dashboardPage(
   dashboardHeader(title = "Immunization Surveillance"),
   
@@ -38,7 +41,7 @@ ui <- dashboardPage(
   )
 )
 
-# Server logic
+# Logique serveur
 server <- function(input, output, session) {
   # Call home server
   home_server(input, output, session)
@@ -47,5 +50,5 @@ server <- function(input, output, session) {
   map_server(input, output, session)
 }
 
-# Launch the application
+# Lancer l'application
 shinyApp(ui = ui, server = server)
