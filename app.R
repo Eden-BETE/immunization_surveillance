@@ -1,59 +1,50 @@
+# app.R
 
-options(repos = c(CRAN = "https://cran.r-project.org"))
 # Charger les bibliothèques nécessaires
-install.packages('shinydashboard') # nolint
-install.packages('shinyWidgets') # nolint
-install.packages("sf")
-install.packages("tidyverse")
-install.packages("leaflet")
 library(shiny)
 library(shinydashboard)
-# app.R
-install.packages("htmlwidgets")
-library(htmlwidgets)
-
 library(sf)
 library(tidyverse)
 library(leaflet)
+library(dplyr)
 library(shinyWidgets)
+library(htmlwidgets)
 
-
-# Load the pages
-source("Pages/Home.R") 
+# Charger les pages
+source("Pages/Home.R")
+source("Pages/Courbes_Evolution.R")
 source("Pages/Map.R")
 
 # Interface utilisateur
 ui <- dashboardPage(
   dashboardHeader(title = "Immunization Surveillance"),
-  
-  # Sidebar navigation
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "Home", icon = icon("dashboard")),
+       menuItem("Courbes Evolution", tabName = "Courbes_Evolution", icon = icon("chart-line")),
       menuItem("Map", tabName = "Map", icon = icon("globe"))
+     
     )
   ),
-  
-  # Dashboard body
   dashboardBody(
-    tags$head(
-      tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-    ),
+    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")),
     tabItems(
-      home_ui,  # UI from Home.R
-      map_ui    # UI from Map.R
+      home_ui,
+      courbes_evolution_ui,
+      map_ui
+       # Ajouter la nouvelle page UI
     )
   )
 )
 
 # Logique serveur
 server <- function(input, output, session) {
-  # Call home server
   home_server(input, output, session)
-  
-  # Call map server directly (not as a module)
+  courbes_evolution_server(input, output)  # Appeler la logique serveur
   map_server(input, output, session)
+  
 }
 
 # Lancer l'application
 shinyApp(ui = ui, server = server)
+
