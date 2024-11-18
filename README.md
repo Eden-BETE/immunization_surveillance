@@ -24,6 +24,7 @@ The Immunization Surveillance Dashboard is an interactive web application built 
 - tidyverse
 - leaflet
 - htmlwidgets
+- dplyr
 ```
 
 ## 🚀 Installation & Setup
