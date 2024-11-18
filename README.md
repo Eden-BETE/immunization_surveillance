@@ -98,10 +98,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 👥 Authors
-[<b>Eden BETE</b>](https://github.com/Eden-BETE)
-[<b>Abdou DOSSOU</b>](https://github.com/Abd2k27)
-[<b>Martinien Borgia Decherubin Miemo</b>](https://github.com/borgiamiemo)
-Christelle
+* [<b>Eden BETE</b>](https://github.com/Eden-BETE)
+* [<b>Abdou DOSSOU</b>](https://github.com/Abd2k27)
+* [<b>Martinien Borgia Decherubin Miemo</b>](https://github.com/borgiamiemo)
+* Christelle
 
 ## 🙏 Acknowledgments
 - World Health Organization (WHO)
