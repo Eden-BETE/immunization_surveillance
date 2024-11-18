@@ -1,4 +1,4 @@
-# Immunization Surveillance Dashboard 💉(https://nl79p3-bete-ga0lle.shinyapps.io/immunization_surveillance/)
+# [Immunization Surveillance Dashboard 💉](https://nl79p3-bete-ga0lle.shinyapps.io/immunization_surveillance/)
 
 ## Overview
 The Immunization Surveillance Dashboard is an interactive web application built with R Shiny that visualizes global vaccination coverage data from WHO and UNICEF (WUENIC - WHO and UNICEF Estimates of National Immunization Coverage). This tool allows users to explore vaccination rates across different countries, years, and vaccine types through an intuitive interface.
