@@ -100,8 +100,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👥 Authors
 * [<b>Eden BETE</b>](https://github.com/Eden-BETE)
 * [<b>Abdou DOSSOU</b>](https://github.com/Abd2k27)
-* [<b>Martinien Borgia Decherubin Miemo</b>](https://github.com/borgiamiemo)
-* Christelle
+* [<b>Martinien Borgia Decherubin MIEMO</b>](https://github.com/borgiamiemo)
+* [<b>Christelle SORO</b>]((https://github.com/Christelle-soro))
 
 ## 🙏 Acknowledgments
 - World Health Organization (WHO)
