@@ -30,7 +30,7 @@ The Immunization Surveillance Dashboard is an interactive web application built 
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone [https://github.com/Eden-BETE/immunization_surveillance.git]
 cd immunization-surveillance
 ```
 
@@ -91,9 +91,6 @@ options(repos = c(CRAN = "https://cran.r-project.org"))
 - Coverage percentage legend
 - Country-specific popups with detailed information
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
@@ -106,14 +103,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🙏 Acknowledgments
 - World Health Organization (WHO)
 - UNICEF
-- [Any other acknowledgments]
 
 ## 📞 Contact
-[Your contact information or how to reach out with questions]
-
-## 🐛 Known Issues & Roadmap
-- [List any known issues]
-- [Future development plans]
+* Eden BETE :  Mail[eden.bete.etu@univ-lille.fr]
 
 ---
 **Note**: Keep your data files and dependencies up to date for optimal performance.
