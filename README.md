@@ -51,6 +51,7 @@ immunization-surveillance/
 │   └── Map.R
 └── data/
     ├── combined_vaccine_coverage.csv
+    ├── donnees_vaccination.csv
     └── world_map.json
 ```
 
