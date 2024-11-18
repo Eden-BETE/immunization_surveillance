@@ -1,3 +1,5 @@
+
+options(repos = c(CRAN = "https://cran.r-project.org"))
 # Charger les bibliothèques nécessaires
 install.packages('shinydashboard') # nolint
 install.packages('shinyWidgets') # nolint

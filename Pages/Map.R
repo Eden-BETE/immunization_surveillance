@@ -1,11 +1,3 @@
-# Map.R
-# Remove install.packages() from here as it's redundant when packages are already installed
-
-library(shiny)
-library(leaflet)
-library(tidyverse)
-library(sf)
-library(htmlwidgets)  # Ensure htmlwidgets is explicitly loaded
 
 # Load data
 data <- read.csv("data/combined_vaccine_coverage.csv")
