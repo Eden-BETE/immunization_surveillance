@@ -4,24 +4,24 @@
 donnees <- read.csv("data/donnees_vaccination.csv")
 
 # Interface utilisateur
-courbes_evolution_ui <- tabItem(
-  tabName = "Courbes_Evolution",
+trend_charts_ui <- tabItem(
+  tabName = "Trend_Charts",
   fluidPage(
-    titlePanel("Évolution de la couverture vaccinale (2000-2023)"),
+    titlePanel("Trends in Vaccination Coverage (2000-2023)"),
     sidebarLayout(
       sidebarPanel(
-        selectInput("pays", "Sélectionnez un ou plusieurs pays :", 
+        selectInput("pays", "Select one or more countries:", 
                     choices = unique(donnees$country), 
                     selected = unique(donnees$country)[1], 
                     multiple = TRUE),
-        selectInput("vaccin", "Sélectionnez un vaccin :", 
+        selectInput("vaccin", "Select a vaccine :", 
                     choices = unique(donnees$vaccine), 
                     selected = unique(donnees$vaccine)[1])
       ),
       mainPanel(
         tabsetPanel(
-          tabPanel("Évolution par pays", plotOutput("graphPays")),
-          tabPanel("Comparaison avec la tendance mondiale", plotOutput("graphComparaison"))
+          tabPanel("Trends per country", plotOutput("graphPays")),
+          tabPanel("Comparison with global trend", plotOutput("graphComparaison"))
         )
       )
     )
@@ -29,7 +29,7 @@ courbes_evolution_ui <- tabItem(
 )
 
 # Logique serveur
-courbes_evolution_server <- function(input, output) {
+trend_charts_server <- function(input, output) {
   output$graphPays <- renderPlot({
     donnees_filtrees <- donnees %>%
       filter(!is.na(taux_couverture), country %in% input$pays, vaccine == input$vaccin)
@@ -56,7 +56,7 @@ courbes_evolution_server <- function(input, output) {
     ggplot(donnees_combinees, aes(x = annee, y = taux_couverture, color = country)) +
       geom_line(aes(linetype = country), linewidth = 1) +
       scale_linetype_manual(values = c(rep("solid", length(unique(donnees_pays$country))), "dashed")) +
-      labs(title = paste("Comparaison pour le vaccin :", input$vaccin),
+      labs(title = paste("Comparison for the vaccine :", input$vaccin),
            x = "Année", y = "Taux de couverture (%)",
            color = "Légende", linetype = "Légende") +
       theme_minimal()

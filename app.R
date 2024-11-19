@@ -12,7 +12,7 @@ library(htmlwidgets)
 
 # Charger les pages
 source("Pages/Home.R")
-source("Pages/Courbes_Evolution.R")
+source("Pages/Trend_Charts.R")
 source("Pages/Map.R")
 
 # Interface utilisateur
@@ -21,7 +21,7 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "Home", icon = icon("dashboard")),
-       menuItem("Courbes Evolution", tabName = "Courbes_Evolution", icon = icon("chart-line")),
+       menuItem("Trend Charts", tabName = "Trend_Charts", icon = icon("chart-line")),
       menuItem("Map", tabName = "Map", icon = icon("globe"))
      
     )
@@ -30,7 +30,7 @@ ui <- dashboardPage(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")),
     tabItems(
       home_ui,
-      courbes_evolution_ui,
+      trend_charts_ui,
       map_ui
        # Ajouter la nouvelle page UI
     )
@@ -40,7 +40,7 @@ ui <- dashboardPage(
 # Logique serveur
 server <- function(input, output, session) {
   home_server(input, output, session)
-  courbes_evolution_server(input, output)  # Appeler la logique serveur
+  trend_charts_server(input, output)  # Appeler la logique serveur
   map_server(input, output, session)
   
 }
