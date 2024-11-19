@@ -35,10 +35,18 @@ trend_charts_server <- function(input, output) {
       filter(!is.na(taux_couverture), country %in% input$pays, vaccine == input$vaccin)
     
     ggplot(donnees_filtrees, aes(x = annee, y = taux_couverture, color = country)) +
-      geom_line(linewidth = 1) +
-      labs(title = paste("Évolution de la couverture vaccinale pour le vaccin :", input$vaccin),
-           x = "Année", y = "Taux de couverture (%)") +
-      theme_minimal()
+      geom_line(linewidth = 2) +  # Increased line thickness
+      labs(title = paste("Trends of the vaccination coverage for the vaccine :", input$vaccin),
+           x = "Year", y = "Coverage(%)") +
+      theme_minimal() +
+      theme(
+        axis.text = element_text(size = 12),           # Larger axis text
+        axis.title = element_text(size = 14, face = "bold"),  # Larger, bold axis titles
+        axis.line = element_line(linewidth = 1),        # Thicker axis lines
+        plot.title = element_text(size = 16, hjust = 0.5),  # Larger, centered title
+        legend.text = element_text(size = 10),          # Adjust legend text size
+        legend.title = element_text(size = 12)          # Adjust legend title size
+      )
   })
   
   output$graphComparaison <- renderPlot({
@@ -49,16 +57,24 @@ trend_charts_server <- function(input, output) {
       filter(!is.na(taux_couverture), vaccine == input$vaccin) %>%
       group_by(annee) %>%
       summarise(taux_couverture = mean(taux_couverture, na.rm = TRUE)) %>%
-      mutate(country = "Tendance mondiale")
+      mutate(country = "Global trend")
     
     donnees_combinees <- bind_rows(donnees_pays, tendance_mondiale)
     
     ggplot(donnees_combinees, aes(x = annee, y = taux_couverture, color = country)) +
-      geom_line(aes(linetype = country), linewidth = 1) +
+      geom_line(aes(linetype = country), linewidth = 2) +  # Increased line thickness
       scale_linetype_manual(values = c(rep("solid", length(unique(donnees_pays$country))), "dashed")) +
       labs(title = paste("Comparison for the vaccine :", input$vaccin),
-           x = "Année", y = "Taux de couverture (%)",
-           color = "Légende", linetype = "Légende") +
-      theme_minimal()
+           x = "year", y = "Coverage (%)",
+           color = "Legend", linetype = "Legend") +
+      theme_minimal() +
+      theme(
+        axis.text = element_text(size = 12),           # Larger axis text
+        axis.title = element_text(size = 14, face = "bold"),  # Larger, bold axis titles
+        axis.line = element_line(linewidth = 1),        # Thicker axis lines
+        plot.title = element_text(size = 16, hjust = 0.5),  # Larger, centered title
+        legend.text = element_text(size = 10),          # Adjust legend text size
+        legend.title = element_text(size = 12)          # Adjust legend title size
+      )
   })
 }

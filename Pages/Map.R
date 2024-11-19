@@ -1,4 +1,3 @@
-
 # Load data
 data <- read.csv("data/combined_vaccine_coverage.csv")
 world_map <- st_read("data/world_map.json")
@@ -11,9 +10,9 @@ map_ui <- tabItem(
         sidebarLayout(
             sidebarPanel(
                 selectInput("selected_year", "Select Year:", 
-                           choices = sort(unique(data$year), decreasing = TRUE)),
+                            choices = sort(unique(data$year), decreasing = TRUE)),
                 selectInput("selected_vaccine", "Select Vaccine:", 
-                           choices = unique(data$vaccine)),
+                            choices = unique(data$vaccine)),
                 verbatimTextOutput("debug_info")
             ),
             mainPanel(
@@ -29,7 +28,7 @@ map_server <- function(input, output, session) {
     filtered_data <- reactive({
         data %>%
             filter(year == input$selected_year,
-                  vaccine == input$selected_vaccine)
+                   vaccine == input$selected_vaccine)
     })
     
     # Join map data with filtered data
@@ -38,13 +37,11 @@ map_server <- function(input, output, session) {
             left_join(filtered_data(), by = c("id" = "iso3"))
     })
     
-  
-    
     # Render map
     output$map <- renderLeaflet({
-        # Create color palette
+        # Create sequential blue color palette
         pal <- colorNumeric(
-            palette = "YlOrRd",
+            palette = colorRampPalette(c("#F7FBFF", "#DEEBF7", "#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#084594"))(100),
             domain = c(0, 100),
             na.color = "#808080"
         )
